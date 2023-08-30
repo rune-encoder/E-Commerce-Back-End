@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
 // Find one category by its `id` value and its associated products.
 router.get("/:id", async (req, res) => {
   try {
-    const categoryData = await Category.findByPk({
+    const categoryData = await Category.findByPk(req.params.id, {
       include: [{ model: Product }],
     });
     // If categoryData evaluates aas false (no category with that primary key), then we will send an error message.
