@@ -2,7 +2,7 @@
 
  ## Description
  
-  **E-Commerce Web Application BACK-END Video Walkthrough Link: [Youtube Video]()** 
+  **E-Commerce Web Application BACK-END Video Walkthrough Link: [Youtube Video](https://www.youtube.com/watch?v=UUwZrEMcCjw)** 
   
   This application consists of the BACK-END of an E-Commerce site.  
 
