@@ -68,8 +68,8 @@ DB_PASSWORD='Your_Password_Here'
 **Testing API routes was done using Insomnia.**  
 Using insomnia you are able to test the GET, POST, PUT and DELETE routes for the Categories Table, Product Table, and Tag Table. 
 
->**Testing Preview:**
->![Application Test](./assets/screenshots/E-Commerce-Screenshot.gif) 
+**Testing Preview:**  
+![Application Test](./assets/screenshots/E-Commerce-Screenshot.gif) 
  ## Credits
 
 N/A
