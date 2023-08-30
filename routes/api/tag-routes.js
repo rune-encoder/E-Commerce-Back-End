@@ -7,6 +7,7 @@ const { Tag, Product, ProductTag } = require("../../models");
 router.get("/", async (req, res) => {
   try {
     const tagData = await Tag.findAll({
+      // This will retrieve every Tag's associated product data. In SQL, this would be the join function.
       include: [{ model: Product }],
     });
     res.status(200).json(tagData);
@@ -21,12 +22,16 @@ router.get("/:id", async (req, res) => {
     const tagData = await Tag.findByPk(req.params.id, {
       include: [{ model: Product }],
     });
+    // If tagdata evaluates aas false (no tag with that primary key), then we will send an error message.
     if (!tagData) {
+      // 400 status code means the server could not understand the request.
       res.status(400).json({ message: "No tag found with this ID." });
       return;
     }
+    // 200 status code means the request is successful.
     res.status(200).json(tagData);
   } catch (err) {
+    // 500 status code means server encountered something unexpected that prevented it from fulfilling the request.
     res.status(500).json(err);
   }
 });
