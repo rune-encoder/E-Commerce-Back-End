@@ -1,4 +1,4 @@
-// import models
+// Import models
 const Product = require('./Product');
 const Category = require('./Category');
 const Tag = require('./Tag');
@@ -9,7 +9,7 @@ Product.belongsTo(Category, {
   foreignKey: 'category_id',
 });
 
-// Categories have many Products
+// Categories has many Products
 Category.hasMany(Product, {
   foreignKey: 'category_id',
 });

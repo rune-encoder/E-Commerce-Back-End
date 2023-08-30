@@ -7,6 +7,7 @@ const { Product, Category, Tag, ProductTag } = require("../../models");
 router.get("/", async (req, res) => {
   try {
     const productData = await Product.findAll({
+      // This will retrieve every Product's associated Category and Tag data.
       include: [{ model: Category }, { model: Tag }],
     });
     res.status(200).json(productData);
@@ -21,12 +22,16 @@ router.get("/:id", async (req, res) => {
     const productData = await Product.findByPk(req.params.id, {
       include: [{ model: Category }, { model: Tag }],
     });
+    // If productData evaluates aas false (no product with that primary key), then we will send an error message.
     if (!productData) {
+      // 400 status code means the server could not understand the request.
       res.status(400).json({ message: "No Product found with this ID." });
       return;
     }
+    // 200 status code means the request is successful.
     res.status(200).json(productData);
   } catch (err) {
+    // 500 status code means server encountered something unexpected that prevented it from fulfilling the request.
     res.status(500).json(err);
   }
 });
